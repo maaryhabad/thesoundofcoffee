@@ -4,7 +4,7 @@ import SpriteKit
 struct ContentView: View {
     
     var scene: SKScene {
-        let scene = IntroGameScene()
+        let scene = BeanChoiceGameScene()
         scene.scaleMode = .resizeFill
         return scene
     }
