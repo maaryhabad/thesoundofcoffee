@@ -13,7 +13,6 @@ class IntroGameScene: SKScene {
     override func sceneDidLoad() {
         super.sceneDidLoad()
         backgroundColor = SKColor.init(named: "fundo")!
-        setup()
         
     }
     

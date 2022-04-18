@@ -17,18 +17,27 @@ class BeanChoiceGameScene: SKScene {
         setup()
     }
     
+    override func didChangeSize(_ oldSize: CGSize) {
+        super.didChangeSize(oldSize)
+        setup()
+    }
+    
     func setup() {
         removeAllChildren()
         
         let text = newLabel(
             text: "Whether it's for digestion, lightening the spirit, staving off sleep or just soothing the soul, coffee originates from the Ethiopian highlands. The name comes from the Arabic word *qahwa,* which means wine.\nA legend tells that a shepherd named Kaldi observed the behavior of his sheep after ingesting the leaves and fruits of the coffee tree, they were jumping and were able to travel long distances after consumption.",
-            color: .black,
+            color: UIColor.black,
             fontSize: 35,
-            x: self.size.width/2,
-            y: (self.size.height/2) - 70)
+            x: 0,
+            y: self.size.height/2)
         
         text.horizontalAlignmentMode = .left
-        text.startTyping(15, completion: nil)
+        text.startTyping(0.1, completion: nil)
+        
+        let rangeToBorder = SKRange(lowerLimit: 20, upperLimit: self.size.width - 20)
+        let distanceConstraint = SKConstraint.distance(rangeToBorder, to: text)
+        text.constraints = [distanceConstraint]
     }
     
     func newLabel(text: String, color: SKColor, fontSize: CGFloat, x: CGFloat, y: CGFloat) -> SKLabelNode {
